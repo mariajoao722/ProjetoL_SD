@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>Menu do vendedor [[${curUser.nome}]] </title>
+		<link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      max-width: 800px; /* Adjusted width for a 17-inch monitor */
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 20px 50px;
+      margin-bottom: 20px;
+      width: 300px; /* Adjust the width as needed */
+      height: 70px; /* Adjust the height as needed */
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 18px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+     
+    .btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+		
+	</head>
+	<body>
+		<div class="container">
+		<h2>Menu Vendedor</h2>
+			<div>
+				<h1>[[${curUser.nome}]] </h1>
+			</div>
+			
+			<div class="btn-container">
+				<a th:href="@{/showNewPropriedadeForm}"><button  class="btn" role="button"><i class="fa fa-plus-circle"></i> Adicionar propriedade</button></a>
+				<a th:href="@{/listPropriedades}"><button class="btn" role="button"><i class="fa fa-list-alt"></i> Consultar propriedades</button></a>
+				<a th:href="@{/getmaisvendas}"><button class="btn" role="button"><i class="fa fa-list-alt"></i> Vendedor que mais vendeu</button></a>
+				<a th:href="@{/menosvendas}"><button class="btn" role="button"><i class="fa fa-list-alt"></i> Vendedor que menos vendeu</button></a>
+				<a th:href="@{/gettipomaisvendas}"><button  class="btn" role="button"><i class="fa fa-list-alt"></i> Tipo com mais vendas</button></a>
+				<a th:href="@{/propriedadesvendidas}"><button class="btn" role="button"><i class="fa fa-list-alt"></i> Número total de propriedades vendidas</button></a>
+				<a th:href="@{/}"><button type="button" class="btn">Sair</button></a>
+			</div>
+		</div>
+		
+		
+	</body>
+
+	
+</html>

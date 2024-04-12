@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Property Details</title>
+    <style>
+    
+    
+    table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+    
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      align-items: right;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-bottom: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+    <h1>Detalhes Propriedade</h1>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Local</th>
+            <th>Área</th>
+            <th>Tipo de imóvel</th>
+            <th>Serviço</th>
+
+        </tr>
+        <tr>
+            <td th:text="${propriedade.nome}"></td>
+            <td th:text="${propriedade.preco}"></td>
+            <td th:text="${propriedade.local}"></td>
+            <td th:text="${propriedade.area}"></td>
+            <td th:text="${propriedade.tipodeimovel}"></td>
+            <td th:text="${propriedade.compra_aluga}"></td>
+
+        </tr>
+    </table>
+    <form th:action="@{/compracasa}" method="post">
+        <input type="hidden" name="propriedadeId" th:value="${propriedade.id}">
+        <p></p>
+        <button type="submit" class="btn" th:text="${propriedade.compra_aluga}"></button>
+    </form>
+    
+    <form th:action="@{/addfavoritos}" method="post">
+    	<input type="hidden" name="propriedadeId" th:value="${propriedade.id}">
+    	<div class="btn-container">
+		  <a> <button type="submit" class="btn" >Adicionar aos favoritos</button>
+	</div>
+    </form>
+        
+    
+	
+	<div class="btn-container">
+		 <a th:href="@{/listPropriedadesCliente}"><button type="button" class="btn" >Voltar atrás</button></a>
+	</div>
+		 
+</body>
+</html>

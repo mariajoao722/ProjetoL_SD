@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>Adicionar nova propriedade</title>
+		  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn-container {
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+	</head>
+	<body>
+		<div class="mainDiv">
+			 <h1 class="mainTitle">Adicionar nova propriedade</h1>
+			 
+			 
+			 <form action="#" th:action="@{/savePropriedade}" th:object="${newprop}" method="POST">
+			 	<div class="form-group">
+        		<label for="username">Nome:</label>
+        		<input type="text" th:name="propnome" placeholder="Nome" >
+      			</div>
+      			
+				<div class="form-group">
+        		<label for="preco">Preço:</label>
+				<input type="number" th:name="proppreco" placeholder="Preço" >	
+      			</div>
+      			
+				<div class="form-group">
+        		<label for="local">Local:</label>	
+				<input type="text" th:name="proplocal" placeholder="Local" >
+      			</div>
+      			
+      			<div class="form-group">
+        		<label for="area">Área:</label>	
+				<input type="number" th:name="proparea" placeholder="Área" >
+      			</div>
+      			
+				<div class="form-group">
+        		<label for="tipo">Tipo de Imóvel:</label>
+        		<select name="topics" th:name="proptipo" placeholder="Tipo">
+				     <option th:value="apartamento" th:text="Apartamento">
+				     <option th:value="casa" th:text="Casa">
+				     <option th:value="terreno" th:text="Terreno">
+				 </select>
+      			</div>
+      			
+      			<div class="form-group">
+        		<label for="compra">Tipo de serviço:</label>
+        		<select name="topics" th:name="propcompra" placeholder="Tipo">
+				     <option th:value="alugar" th:text="Alugar">
+				     <option th:value="comprar" th:text="Comprar">
+				 </select>
+      			</div>	
+      			
+				<div class="btn-container">
+				<button class="btn" type="submit" >Adicionar</button>
+				</div>
+				
+			 </form>
+			 
+			 <a th:href="@{/loadUserRole}"><button type="button" class="btn">Voltar atrás</button></a>
+		</div>
+	</body>
+</html>

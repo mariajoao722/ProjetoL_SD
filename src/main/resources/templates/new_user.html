@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>Registo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn-container {
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+	</head>
+	<body>
+		
+		<div class="container">
+			<h2>Registro</h2>
+		 	<form action="#" th:action="@{/registerUser}" th:object="${registeruser}" method="POST">
+		 		<div class="form-group">
+        		<label for="username">Nome:</label>
+        		<input type="text" th:name="regnome" placeholder="Nome" >
+      			</div>
+      			
+				<div class="form-group">
+        		<label for="password">Password:</label>
+				<input type="password" th:name="regpassword" placeholder="Password" >	
+      			</div>
+      			
+				<div class="form-group">
+        		<label for="password">Confrime a password:</label>	
+				<input type="password" th:name="regconfpassword" placeholder="Password" >
+      			</div>
+      			
+				<div class="form-group">
+        		<label for="role">Role:</label>
+        		<select name="topics" th:name="regrole" placeholder="Cargo">
+				     <option th:value="vendedor" th:text="Vendedor">
+				     <option th:value="cliente" th:text="Cliente">
+				 </select>
+      			</div>	
+      			
+				<div class="btn-container">
+				<button class="btn" type="submit" >Registar</button>
+				</div>
+			 </form>
+		 <hr>
+  		<a th:href="@{/}"><button type="button" class="btn">Voltar atrás</button></a>
+		
+		</div>
+		
+	</body>
+</html>
